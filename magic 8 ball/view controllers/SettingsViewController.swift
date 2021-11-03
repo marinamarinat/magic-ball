@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RealmSwift
+// TO DO: Connect custom user answers to the Realm database.
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -38,6 +40,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.reloadData()
     }
     
+    // MARK: - Alert Controller set up
     @objc private func showAddAnswerAlert() {
         let alert = UIAlertController(title: "", message: "Add custom answer", preferredStyle: .alert)
         alert.addTextField { textField in
@@ -58,6 +61,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    // MARK: - Table View set up
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SettingsViewController.answers.count
     }
@@ -69,6 +73,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            SettingsViewController.answers.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
     
     private func setupUI() {
         view.backgroundColor = .white
