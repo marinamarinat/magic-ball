@@ -1,1 +1,1 @@
-Magic 8 Ball
+MAGIC 8 Ball
