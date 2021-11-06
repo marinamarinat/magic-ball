@@ -5,6 +5,6 @@ target 'MAGIC 8 BALL' do
  
   use_frameworks!
 
-pod 'RealmSwift'
+pod 'RealmSwift', '~>10'
 
 end
