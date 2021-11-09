@@ -7,9 +7,13 @@
 
 import Foundation
 
-class NetworkService {
+protocol NetworkDataProvider {
+   func request(urlString: String, completion: @escaping (Magic?, Error?) -> Void)
+}
+
+class NetworkService: NetworkDataProvider {
     
-    func request(urlString: String, completion: @escaping (Magic?, Error?) -> Void) {
+     func request(urlString: String, completion: @escaping (Magic?, Error?) -> Void) {
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
