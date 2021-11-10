@@ -24,10 +24,8 @@ extension SettingsViewController {
         
         alert.addAction(cancelAction)
         alert.addAction(addAction)
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
-        }
+        self.present(alert, animated: true, completion: nil)
         
     }
-   
+    
 }
