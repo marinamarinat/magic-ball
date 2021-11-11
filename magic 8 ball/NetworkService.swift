@@ -7,7 +7,11 @@
 
 import Foundation
 
-class NetworkService {
+protocol NetworkDataProvider {
+    func request(urlString: String, completion: @escaping (Magic?, Error?) -> Void)
+}
+
+class NetworkService: NetworkDataProvider {
     
     func request(urlString: String, completion: @escaping (Magic?, Error?) -> Void) {
         guard let url = URL(string: urlString) else { return }
