@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
       
-    static var answers:[String] = []
+    var answers:[String] = []
     
     private lazy var tableView:UITableView = {
         let tableview = UITableView()
@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
     }
     
      func addAnswer(answer:String) {
-        SettingsViewController.answers.append(answer)
+        answers.append(answer)
         self.tableView.reloadData()
     }
     
