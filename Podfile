@@ -7,5 +7,6 @@ target 'MAGIC 8 BALL' do
 
 pod 'RealmSwift', '~>10'
 pod 'SwiftLint', '~> 0.45'
+pod 'SwiftGen', '~> 6.5'
 
 end

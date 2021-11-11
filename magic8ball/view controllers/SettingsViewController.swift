@@ -8,10 +8,8 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-      
-    var answers:[String] = []
-    
-    private lazy var tableView:UITableView = {
+    static var answers: [String] = []
+    private lazy var tableView: UITableView = {
         let tableview = UITableView()
         tableview.backgroundColor = .clear
         tableview.delegate = self
@@ -25,20 +23,16 @@ class SettingsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         setupUI()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddAnswerAlert))
     }
-    
-     func addAnswer(answer:String) {
-        answers.append(answer)
+     func addAnswer(answer: String) {
+         SettingsViewController.answers.append(answer)
         self.tableView.reloadData()
     }
-    
     private func setupUI() {
         view.backgroundColor = .white
-        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true

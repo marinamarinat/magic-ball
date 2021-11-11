@@ -9,7 +9,6 @@ import UIKit
 
 extension SettingsViewController {
     @objc func showAddAnswerAlert() {
-        
         let alert = UIAlertController(title: "", message: "Add custom answer", preferredStyle: .alert)
         alert.addTextField { textField in
             textField.placeholder = "Answer"
@@ -21,11 +20,8 @@ extension SettingsViewController {
             self.addAnswer(answer: text)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        
         alert.addAction(cancelAction)
         alert.addAction(addAction)
         self.present(alert, animated: true, completion: nil)
-        
     }
-    
 }

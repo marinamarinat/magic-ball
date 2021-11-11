@@ -1,0 +1,8 @@
+/* 
+  Strings.strings
+  MAGIC 8 BALL
+
+  Created by Marina Tsesarenko on 12.11.2021.
+  
+*/
+"shakeMessage" = "Ask the question and shake your phone!";
