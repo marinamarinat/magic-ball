@@ -14,7 +14,3 @@ struct Magic: Decodable {
 struct Answers: Decodable {
     var answer: String
 }
-
-
-
-

@@ -12,10 +12,8 @@ protocol NetworkDataProvider {
 }
 
 class NetworkService: NetworkDataProvider {
-    
     func request(urlString: String, completion: @escaping (Magic?, Error?) -> Void) {
         guard let url = URL(string: urlString) else { return }
-        
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
@@ -23,9 +21,7 @@ class NetworkService: NetworkDataProvider {
                     completion(nil, error)
                     return
                 }
-                
                 guard let data = data else { return }
-                
                 do {
                     let answer = try JSONDecoder().decode(Magic.self, from: data)
                     print(answer)

@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		256BAFC6273DD7FF000658CD /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256BAFC4273DD7FF000658CD /* Assets.swift */; };
+		256BAFC7273DD7FF000658CD /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256BAFC5273DD7FF000658CD /* Strings.swift */; };
+		256BAFCC273DDF10000658CD /* Strings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 256BAFCA273DDF10000658CD /* Strings.strings */; };
 		2587599E2713817B0081E9B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2587599D2713817B0081E9B5 /* AppDelegate.swift */; };
 		258759A02713817B0081E9B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2587599F2713817B0081E9B5 /* SceneDelegate.swift */; };
-		258759A22713817B0081E9B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258759A12713817B0081E9B5 /* ViewController.swift */; };
+		258759A22713817B0081E9B5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258759A12713817B0081E9B5 /* MainViewController.swift */; };
 		258759A7271381860081E9B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258759A6271381860081E9B5 /* Assets.xcassets */; };
 		258759AA271381860081E9B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258759A8271381860081E9B5 /* LaunchScreen.storyboard */; };
 		258759B32715B8130081E9B5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258759B22715B8130081E9B5 /* Model.swift */; };
@@ -22,10 +25,13 @@
 
 /* Begin PBXFileReference section */
 		1EF52E18399A6BB432E50613 /* Pods-MAGIC 8 BALL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAGIC 8 BALL.release.xcconfig"; path = "Target Support Files/Pods-MAGIC 8 BALL/Pods-MAGIC 8 BALL.release.xcconfig"; sourceTree = "<group>"; };
+		256BAFC4273DD7FF000658CD /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		256BAFC5273DD7FF000658CD /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		256BAFCB273DDF10000658CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Strings.strings; sourceTree = "<group>"; };
 		2587599A2713817B0081E9B5 /* MAGIC 8 BALL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MAGIC 8 BALL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2587599D2713817B0081E9B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2587599F2713817B0081E9B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		258759A12713817B0081E9B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		258759A12713817B0081E9B5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController/MainViewController.swift; sourceTree = "<group>"; };
 		258759A6271381860081E9B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		258759A9271381860081E9B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		258759AB271381860081E9B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,10 +56,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		256BAFC3273DD09F000658CD /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				256BAFC4273DD7FF000658CD /* Assets.swift */,
+				256BAFC5273DD7FF000658CD /* Strings.swift */,
+			);
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		256BAFCE273F11C1000658CD /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				258759B8271C92120081E9B5 /* SettingsViewController.swift */,
+				2595630F273AB41A0078D75A /* TableViewSettingsVC.swift */,
+				2595630D273AB0D10078D75A /* AlertController.swift */,
+			);
+			path = SettingsVC;
+			sourceTree = "<group>";
+		};
+		256BAFCF273F120B000658CD /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				258759A12713817B0081E9B5 /* MainViewController.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		256BAFD0273F1C94000658CD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				256BAFC3273DD09F000658CD /* SwiftGen */,
+				258759A6271381860081E9B5 /* Assets.xcassets */,
+				256BAFCA273DDF10000658CD /* Strings.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		256BAFD1273F36C6000658CD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				258759B5271AEF7B0081E9B5 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		258759912713817B0081E9B5 = {
 			isa = PBXGroup;
 			children = (
-				2587599C2713817B0081E9B5 /* magic 8 ball */,
+				2587599C2713817B0081E9B5 /* magic8ball */,
 				2587599B2713817B0081E9B5 /* Products */,
 				EE666249A579CE337CB98497 /* Pods */,
 				2C4920023ECE5DF890D07B58 /* Frameworks */,
@@ -68,30 +119,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2587599C2713817B0081E9B5 /* magic 8 ball */ = {
+		2587599C2713817B0081E9B5 /* magic8ball */ = {
 			isa = PBXGroup;
 			children = (
-				2595AE442720961C00B1F0AC /* view controllers */,
+				2595AE442720961C00B1F0AC /* ViewControllers */,
 				2587599D2713817B0081E9B5 /* AppDelegate.swift */,
 				2587599F2713817B0081E9B5 /* SceneDelegate.swift */,
-				258759B5271AEF7B0081E9B5 /* NetworkService.swift */,
+				256BAFD1273F36C6000658CD /* Services */,
 				258759B22715B8130081E9B5 /* Model.swift */,
-				258759A6271381860081E9B5 /* Assets.xcassets */,
+				256BAFD0273F1C94000658CD /* Resources */,
 				258759A8271381860081E9B5 /* LaunchScreen.storyboard */,
 				258759AB271381860081E9B5 /* Info.plist */,
 			);
-			path = "magic 8 ball";
+			path = magic8ball;
 			sourceTree = "<group>";
 		};
-		2595AE442720961C00B1F0AC /* view controllers */ = {
+		2595AE442720961C00B1F0AC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				258759B8271C92120081E9B5 /* SettingsViewController.swift */,
-				258759A12713817B0081E9B5 /* ViewController.swift */,
-				2595630D273AB0D10078D75A /* AlertController.swift */,
-				2595630F273AB41A0078D75A /* TableViewSettingsVC.swift */,
+				256BAFCF273F120B000658CD /* MainViewController */,
+				256BAFCE273F11C1000658CD /* SettingsVC */,
 			);
-			path = "view controllers";
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		2C4920023ECE5DF890D07B58 /* Frameworks */ = {
@@ -123,6 +172,7 @@
 				258759972713817B0081E9B5 /* Frameworks */,
 				258759982713817B0081E9B5 /* Resources */,
 				DF06FCF85ADBEB566A7B2E65 /* [CP] Embed Pods Frameworks */,
+				25956311273C331E0078D75A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -172,6 +222,7 @@
 			files = (
 				258759AA271381860081E9B5 /* LaunchScreen.storyboard in Resources */,
 				258759A7271381860081E9B5 /* Assets.xcassets in Resources */,
+				256BAFCC273DDF10000658CD /* Strings.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +251,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		25956311273C331E0078D75A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
 		DF06FCF85ADBEB566A7B2E65 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,18 +294,28 @@
 			files = (
 				258759B6271AEF7B0081E9B5 /* NetworkService.swift in Sources */,
 				25956310273AB41A0078D75A /* TableViewSettingsVC.swift in Sources */,
-				258759A22713817B0081E9B5 /* ViewController.swift in Sources */,
+				256BAFC7273DD7FF000658CD /* Strings.swift in Sources */,
+				258759A22713817B0081E9B5 /* MainViewController.swift in Sources */,
 				2587599E2713817B0081E9B5 /* AppDelegate.swift in Sources */,
 				258759A02713817B0081E9B5 /* SceneDelegate.swift in Sources */,
 				2595630E273AB0D10078D75A /* AlertController.swift in Sources */,
 				258759B32715B8130081E9B5 /* Model.swift in Sources */,
 				258759B9271C92120081E9B5 /* SettingsViewController.swift in Sources */,
+				256BAFC6273DD7FF000658CD /* Assets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		256BAFCA273DDF10000658CD /* Strings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				256BAFCB273DDF10000658CD /* Base */,
+			);
+			name = Strings.strings;
+			sourceTree = "<group>";
+		};
 		258759A8271381860081E9B5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -373,7 +451,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PBPH4RXTZ;
-				INFOPLIST_FILE = "magic 8 ball/Info.plist";
+				INFOPLIST_FILE = magic8ball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,7 +471,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PBPH4RXTZ;
-				INFOPLIST_FILE = "magic 8 ball/Info.plist";
+				INFOPLIST_FILE = magic8ball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

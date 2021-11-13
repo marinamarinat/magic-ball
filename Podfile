@@ -6,5 +6,7 @@ target 'MAGIC 8 BALL' do
   use_frameworks!
 
 pod 'RealmSwift', '~>10'
+pod 'SwiftLint', '~> 0.45'
+pod 'SwiftGen', '~> 6.5'
 
 end
