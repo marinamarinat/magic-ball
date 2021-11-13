@@ -1,0 +1,22 @@
+/* 
+  Strings.strings
+  MAGIC 8 BALL
+
+  Created by Marina Tsesarenko on 12.11.2021.
+  
+*/
+// Text Label
+"shakeMessage.title" = "Ask the question and shake your phone!";
+"settingsViewController.title" = "Settings";
+// Error
+"error.initCoder" = "init(coder:) has not been implemented";
+// URL
+"url" = "https://8ball.delegator.com/magic/JSON/3Cquestion_string3E";
+// Alert
+"alert.title" = "";
+"alert.message" = "Add custom answer";
+"textField.placeholder" = "Answer";
+"addAction.title" = "Add";
+"cancelAction.title" = "Cancel";
+// Image
+"gearshapeImage" = "gearshape.fill";

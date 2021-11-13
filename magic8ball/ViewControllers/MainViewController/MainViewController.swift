@@ -19,14 +19,14 @@ class ViewController: UIViewController {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(L10n.Error.initCoder)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         configureBarItem()
         navigationController?.navigationBar.tintColor = .label
-        answersLabel.text = L10n.shakeMessage
+        answersLabel.text = L10n.ShakeMessage.title
         becomeFirstResponder()
     }
     override var canBecomeFirstResponder: Bool {
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         answersLabel.text = SettingsViewController.answers.randomElement()
     }
     private func displayNetworkAnswer() {
-        let urlString = "https://8ball.delegator.com/magic/JSON/%3Cquestion_string%3E"
+        let urlString = L10n.url
         networkDataProvider.request(urlString: urlString) { [self] (magic, error) in
             let answer1 = magic?.magic.answer
             answersLabel.text = answer1
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     // MARK: - UI
     private func configureBarItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "gearshape.fill"),
+            image: UIImage(systemName: L10n.gearshapeImage),
             style: .done,
             target: self,
             action: #selector(self.settingsButton(_:))
