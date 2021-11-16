@@ -16,7 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: winScene)
         let networkProvider = NetworkService()
 //        let settingsViewController = SettingsViewController()
-        let controller = ViewController(networkDataProvider: networkProvider)
+        let mainModel = MainModel(network: networkProvider)
+//        let answersLabel = UILabel()
+        let mainViewModel = MainViewModel(model: mainModel)
+        let controller = ViewController(viewModel: mainViewModel)
         let navController = UINavigationController(rootViewController: controller)
         window.rootViewController = navController
         self.window = window
