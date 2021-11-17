@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     }
 
     @objc func settingsButton(_ sender: Any) {
-         let settingsVC = SettingsViewController()
+        let settingsVC = SettingsViewController(viewModel: viewModel.getSettingsViewModel())
          navigationController?.pushViewController(settingsVC, animated: true)
      }
     // MARK: - UI
