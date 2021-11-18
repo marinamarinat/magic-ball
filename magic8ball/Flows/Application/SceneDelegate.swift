@@ -14,9 +14,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let winScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: winScene)
-        let networkProvider = NetworkService()
-//        let settingsViewController = SettingsViewController()
-        let controller = ViewController(networkDataProvider: networkProvider)
+        let saveData = DataBase()
+        let mainModel = MainModel(saveData: saveData)
+        let mainViewModel = MainViewModel(model: mainModel)
+        let controller = ViewController(viewModel: mainViewModel)
         let navController = UINavigationController(rootViewController: controller)
         window.rootViewController = navController
         self.window = window

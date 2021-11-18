@@ -8,13 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-//    var customAnswers: SettingsViewController
-    // constructor injection
-    let networkDataProvider: NetworkDataProvider
-
-    public init(networkDataProvider: NetworkDataProvider) {
-        self.networkDataProvider = networkDataProvider
-//        self.customAnswers = customAnswers
+    private let viewModel: MainViewModel
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -34,28 +30,14 @@ class ViewController: UIViewController {
     }
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            displayAnswer()
+            viewModel.displayAnswer {(answer) in
+                self.answersLabel.text = answer
+            }
         }
     }
-    private func displayAnswer() {
-        if SettingsViewController.answers.count >= 2 {
-            self.displayLocalAnswer()
-            return
-        }
-        self.displayNetworkAnswer()
-    }
-    private func displayLocalAnswer() {
-        answersLabel.text = SettingsViewController.answers.randomElement()
-    }
-    private func displayNetworkAnswer() {
-        let urlString = L10n.url
-        networkDataProvider.request(urlString: urlString) { [self] (magic, error) in
-            let answer1 = magic?.magic.answer
-            answersLabel.text = answer1
-        }
-    }
+
     @objc func settingsButton(_ sender: Any) {
-         let settingsVC = SettingsViewController()
+        let settingsVC = SettingsViewController(viewModel: viewModel.getSettingsViewModel())
          navigationController?.pushViewController(settingsVC, animated: true)
      }
     // MARK: - UI
@@ -68,7 +50,7 @@ class ViewController: UIViewController {
         )
     }
 
-    private lazy var answersLabel: UILabel = {
+    public lazy var answersLabel: UILabel = {
         let answerslabel = UILabel()
         answerslabel.numberOfLines = 0
         answerslabel.textAlignment = .center

@@ -8,7 +8,14 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    static var answers: [String] = []
+    let viewModel: SettingsViewModel    
+    init(viewModel: SettingsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    } 
     private lazy var tableView: UITableView = {
         let tableview = UITableView()
         tableview.backgroundColor = .clear
@@ -27,10 +34,7 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddAnswerAlert))
     }
-     func addAnswer(answer: String) {
-         SettingsViewController.answers.append(answer)
-        self.tableView.reloadData()
-    }
+    
     private func setupUI() {
         view.backgroundColor = .white
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,4 +45,24 @@ class SettingsViewController: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
     }
 
+}
+
+extension SettingsViewController {
+    @objc func showAddAnswerAlert() {
+        let alert = UIAlertController(title: L10n.Alert.title, message: L10n.Alert.message, preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = L10n.TextField.placeholder
+        }
+        let addAction = UIAlertAction(title: L10n.AddAction.title, style: .default) { _ in
+            guard let textField = alert.textFields?.first else { return }
+            guard let text = textField.text else { return }
+            guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+            self.viewModel.addAnswerToDB(text)
+            self.tableView.reloadData()
+        }
+        let cancelAction = UIAlertAction(title: L10n.CancelAction.title, style: .destructive, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(addAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
