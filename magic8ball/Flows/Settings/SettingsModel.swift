@@ -23,4 +23,7 @@ class SettingsModel {
     func addAnswerToDB(_ answer: String) {
         saveData.addAnswerToDB(answer)
     }
+    func removeAnswerFromDB(at index: Int) {
+        saveData.removeAnswerFromDB(at: index)
+    }
 }

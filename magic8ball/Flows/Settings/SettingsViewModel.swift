@@ -9,7 +9,7 @@ import Foundation
 
 class SettingsViewModel {
     private let model: SettingsModel
-    var answers: [String]
+    private var answers: [String]
     init(model: SettingsModel) {
         self.model = model
         self.answers = model.getAnswersFromDB()
@@ -31,6 +31,7 @@ class SettingsViewModel {
         return answer
     }    
     func removeAnswer(at index: Int) {
+        model.removeAnswerFromDB(at: index)
         answers.remove(at: index)
     }
 }

@@ -34,10 +34,7 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddAnswerAlert))
     }
-    func addAnswer(answer: String) {
-        viewModel.addAnswerToDB(answer)
-        self.tableView.reloadData()
-    }
+    
     private func setupUI() {
         view.backgroundColor = .white
         tableView.translatesAutoresizingMaskIntoConstraints = false

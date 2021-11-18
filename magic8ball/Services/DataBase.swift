@@ -11,6 +11,7 @@ protocol DataBaseProtocol {
     func displayAnswer(completion: @escaping (_ answer: String?) -> Void)
     func addAnswerToDB(_ answer: String)
     func getAnswersFromDB() -> [String]
+    func removeAnswerFromDB(at index: Int)
 }
 class DataBase: DataBaseProtocol {
     private let networkDataProvider: NetworkDataProvider
@@ -37,5 +38,8 @@ class DataBase: DataBaseProtocol {
     }
     func getAnswersFromDB() -> [String] {
         dataManager.userAnswers
+    }
+    func removeAnswerFromDB(at index: Int) {
+        dataManager.userAnswers.remove(at: index)
     }
 }
