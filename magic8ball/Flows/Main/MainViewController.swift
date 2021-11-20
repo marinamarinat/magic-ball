@@ -10,6 +10,7 @@ import SnapKit
 
 class MainViewController: UIViewController {
     private let ballImage = UIImageView()
+    private let answersLabel = UILabel()
     private let viewModel: MainViewModel
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -32,7 +33,7 @@ class MainViewController: UIViewController {
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             viewModel.displayAnswer {(answer) in
-                self.answersLabel.text = answer
+                self.answersLabel.text = answer?.maxLength(length: 30)
             }
         }
     }
@@ -40,13 +41,6 @@ class MainViewController: UIViewController {
         let settingsVC = SettingsViewController(viewModel: viewModel.getSettingsViewModel())
         navigationController?.pushViewController(settingsVC, animated: true)
     }
-    public lazy var answersLabel: UILabel = {
-        let answerslabel = UILabel()
-        answerslabel.numberOfLines = 0
-        answerslabel.textAlignment = .center
-        answerslabel.font = UIFont.boldSystemFont(ofSize: 20)
-        return answerslabel
-    }()
 }
 
 // MARK: - UI
@@ -64,16 +58,31 @@ extension MainViewController {
         ballImage.image = UIImage(named: "magic8ball")
         view.addSubview(ballImage)
         ballImage.snp.makeConstraints { make in
-            make.centerY.equalTo(self.view)
-            make.centerX.equalTo(self.view)
+            make.center.equalTo(view)
             make.width.height.equalTo(250)
         }
         view.backgroundColor = .white
+        answersLabel.numberOfLines = 0
+        answersLabel.textAlignment = .center
+        answersLabel.font = UIFont.boldSystemFont(ofSize: 20)
         view.addSubview(answersLabel)
         answersLabel.snp.makeConstraints { make in
             make.top.equalTo(ballImage).offset(-100)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.trailing.equalToSuperview().inset(30)
         }
     }
+}
+extension String {
+   func maxLength(length: Int) -> String {
+       var str = self
+       let nsString = str as NSString
+       if nsString.length >= length {
+           str = nsString.substring(with:
+               NSRange(
+                location: 0,
+                length: nsString.length > length ? length : nsString.length)
+           )
+       }
+       return  str
+   }
 }
