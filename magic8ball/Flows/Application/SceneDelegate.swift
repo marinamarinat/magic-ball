@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let saveData = DataBase()
         let mainModel = MainModel(saveData: saveData)
         let mainViewModel = MainViewModel(model: mainModel)
-        let controller = ViewController(viewModel: mainViewModel)
+        let controller = MainViewController(viewModel: mainViewModel)
         let navController = UINavigationController(rootViewController: controller)
         window.rootViewController = navController
         self.window = window
