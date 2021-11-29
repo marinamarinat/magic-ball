@@ -9,8 +9,10 @@ import Foundation
 
 class MainModel {
     private let saveData: DataBaseProtocol
-    init(saveData: DataBaseProtocol) {
+    private let storage: HistoryStorage
+    init(saveData: DataBaseProtocol, storage: HistoryStorage = HistoryStorage()) {
         self.saveData = saveData
+        self.storage = storage
     }
     func displayAnswer(completion: @escaping (_ answer: String?) -> Void) {
         saveData.displayAnswer { (answer) in
@@ -19,5 +21,11 @@ class MainModel {
     }    
     func getSettingsModel() -> SettingsModel {
         return SettingsModel(saveData: saveData)
+    }
+    func getHistoryModel() -> HistoryScreenModel {
+        return HistoryScreenModel(storage: storage)
+    }
+    func saveHistoryAnswer(_ answer: String) {
+        storage.saveAnswer(answer)
     }
 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2503A5EC2754F45F008048CE /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503A5EB2754F45F008048CE /* HistoryService.swift */; };
+		2503A5EF2754FDE6008048CE /* HistoryScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503A5EE2754FDE6008048CE /* HistoryScreenModel.swift */; };
+		2503A5F12754FE79008048CE /* HistoryScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503A5F02754FE79008048CE /* HistoryScreenViewModel.swift */; };
+		2503A5F327551EA4008048CE /* HistoryScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503A5F227551EA4008048CE /* HistoryScreenViewController.swift */; };
+		2503A5F5275558D6008048CE /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503A5F4275558D6008048CE /* HistoryTableViewCell.swift */; };
 		256BAFC6273DD7FF000658CD /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256BAFC4273DD7FF000658CD /* Assets.swift */; };
 		256BAFC7273DD7FF000658CD /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256BAFC5273DD7FF000658CD /* Strings.swift */; };
 		256BAFCC273DDF10000658CD /* Strings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 256BAFCA273DDF10000658CD /* Strings.strings */; };
@@ -30,6 +35,11 @@
 
 /* Begin PBXFileReference section */
 		1EF52E18399A6BB432E50613 /* Pods-MAGIC 8 BALL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAGIC 8 BALL.release.xcconfig"; path = "Target Support Files/Pods-MAGIC 8 BALL/Pods-MAGIC 8 BALL.release.xcconfig"; sourceTree = "<group>"; };
+		2503A5EB2754F45F008048CE /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
+		2503A5EE2754FDE6008048CE /* HistoryScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreenModel.swift; sourceTree = "<group>"; };
+		2503A5F02754FE79008048CE /* HistoryScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreenViewModel.swift; sourceTree = "<group>"; };
+		2503A5F227551EA4008048CE /* HistoryScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreenViewController.swift; sourceTree = "<group>"; };
+		2503A5F4275558D6008048CE /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		256BAFC4273DD7FF000658CD /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		256BAFC5273DD7FF000658CD /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		256BAFCB273DDF10000658CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Strings.strings; sourceTree = "<group>"; };
@@ -66,6 +76,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2503A5ED2754FD9F008048CE /* HistoryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2503A5EE2754FDE6008048CE /* HistoryScreenModel.swift */,
+				2503A5F02754FE79008048CE /* HistoryScreenViewModel.swift */,
+				2503A5F227551EA4008048CE /* HistoryScreenViewController.swift */,
+				2503A5F4275558D6008048CE /* HistoryTableViewCell.swift */,
+			);
+			path = HistoryScreen;
+			sourceTree = "<group>";
+		};
 		256BAFC3273DD09F000658CD /* SwiftGen */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +113,7 @@
 				256BAFDC27451B58000658CD /* DataBase.swift */,
 				258759B22715B8130081E9B5 /* DataModel.swift */,
 				256BAFDE27452378000658CD /* UserDefaults.swift */,
+				2503A5EB2754F45F008048CE /* HistoryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -99,6 +121,7 @@
 		256BAFE0274585BA000658CD /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				2503A5ED2754FD9F008048CE /* HistoryScreen */,
 				256BAFE127458645000658CD /* Main */,
 				256BAFE2274586E9000658CD /* Settings */,
 				256BAFE327458807000658CD /* Application */,
@@ -317,14 +340,19 @@
 			files = (
 				256BAFD72743C37A000658CD /* SettingsModel.swift in Sources */,
 				258759B6271AEF7B0081E9B5 /* NetworkService.swift in Sources */,
+				2503A5EC2754F45F008048CE /* HistoryService.swift in Sources */,
 				25956310273AB41A0078D75A /* SettingsViewController+UITableViewDataSource.swift in Sources */,
+				2503A5F327551EA4008048CE /* HistoryScreenViewController.swift in Sources */,
 				256BAFC7273DD7FF000658CD /* Strings.swift in Sources */,
 				256BAFDF27452378000658CD /* UserDefaults.swift in Sources */,
 				258759A22713817B0081E9B5 /* MainViewController.swift in Sources */,
+				2503A5EF2754FDE6008048CE /* HistoryScreenModel.swift in Sources */,
 				256BAFD92743C3C6000658CD /* MainViewModel.swift in Sources */,
+				2503A5F12754FE79008048CE /* HistoryScreenViewModel.swift in Sources */,
 				2587599E2713817B0081E9B5 /* AppDelegate.swift in Sources */,
 				258759A02713817B0081E9B5 /* SceneDelegate.swift in Sources */,
 				256BAFD52743C35B000658CD /* MainModel.swift in Sources */,
+				2503A5F5275558D6008048CE /* HistoryTableViewCell.swift in Sources */,
 				256BAFDD27451B58000658CD /* DataBase.swift in Sources */,
 				258759B32715B8130081E9B5 /* DataModel.swift in Sources */,
 				258759B9271C92120081E9B5 /* SettingsViewController.swift in Sources */,
