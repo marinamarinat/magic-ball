@@ -9,8 +9,8 @@ import Foundation
 
 class MainModel {
     private let saveData: DataBaseProtocol
-    private let storage: HistoryStorage
-    init(saveData: DataBaseProtocol, storage: HistoryStorage = HistoryStorage()) {
+    private let storage: HistoryService
+    init(saveData: DataBaseProtocol, storage: HistoryService = HistoryService()) {
         self.saveData = saveData
         self.storage = storage
     }

@@ -30,10 +30,6 @@ class HistoryScreenViewController: UIViewController {
         setupUI()
         viewModel.loadInfo()
     }
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        tableView.frame = view.bounds
-//    }
     func setupUI() {
         title = "History"
         view.backgroundColor = .white
@@ -48,12 +44,6 @@ extension HistoryScreenViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection()
     }
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let answer = viewModel.message(for: indexPath.row)
-//        let cell = UITableViewCell()
-//        cell.textLabel?.text = answer
-//        return cell
-//    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier,
                                                        for: indexPath) as? HistoryTableViewCell else {

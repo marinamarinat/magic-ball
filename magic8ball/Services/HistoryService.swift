@@ -9,8 +9,7 @@ import Foundation
 import RealmSwift
 
 final class HistoryService {
-     var realm: Realm {
-        get {
+    var realm: Realm {        
             do {
                 let realm = try Realm()
                 return realm
@@ -18,30 +17,32 @@ final class HistoryService {
                 print("Could not access database: ", error)
             }
             return self.realm
-        }
+        
     }
     func saveAnswer(_ answer: String) {
         let object = PresentedAnswer()
         object.date = Date()
         object.message = answer
-        do {
-                    try realm.write {
-                        realm.add(object)
+        DispatchQueue(label: "background").async {
+            autoreleasepool {
+                do {
+                    try self.realm.write {
+                        self.realm.add(object)
+                        self.realm.refresh()
                     }
                 } catch {
                     print("Could not write to database: ", error)
                 }
+            }
+        }
     }
-    func getGivenAnswer() -> Results<PresentedAnswer> {
-        return realm.objects(PresentedAnswer.self).sorted(byKeyPath: PresentedAnswer.Property.date.rawValue,
-                                                           ascending: false)
+    func getAnswer() -> [PresentedAnswer] {
+        DispatchQueue(label: "background").sync {
+            let historyAnswers = realm.objects(PresentedAnswer.self).sorted(byKeyPath: PresentedAnswer.Property.date.rawValue, ascending: false)
+            realm.refresh()
+            let fetchedAnswers = Array(historyAnswers)
+            print("fetching history answers")
+            return fetchedAnswers
+        }
     }
-//    func getGivenAnswer() -> Results<PresentedAnswer> {
-//        do {
-//            let realmObjects = realm.objects(PresentedAnswer.self).sorted(byKeyPath: PresentedAnswer.Property.date.rawValue, ascending: false)
-//            return realmObjects
-//        } catch let error as NSError {
-//            print(error)
-//        }
-//    }
 }

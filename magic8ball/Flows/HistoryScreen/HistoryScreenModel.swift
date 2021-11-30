@@ -16,6 +16,6 @@ class HistoryScreenModel {
         self.storage = storage
     }
     func getAnswer() -> [AnswerHistoryModel] {
-        return storage.getGivenAnswer().map { AnswerHistoryModel.init(date: $0.date, message: $0.message) }
+        return storage.getAnswer().map { AnswerHistoryModel.init(date: $0.date, message: $0.message) }
     }
 }
