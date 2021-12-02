@@ -36,13 +36,13 @@ final class HistoryService {
             }
         }
     }
-    func getAnswer() -> [PresentedAnswer] {
+    func getAnswer(completion: @escaping (_ historyAnswers: [PresentedAnswer]?) -> Void) {
         DispatchQueue(label: "background").sync {
             let historyAnswers = realm.objects(PresentedAnswer.self).sorted(byKeyPath: PresentedAnswer.Property.date.rawValue, ascending: false)
             realm.refresh()
             let fetchedAnswers = Array(historyAnswers)
             print("fetching history answers")
-            return fetchedAnswers
+            completion (Array(fetchedAnswers))
         }
     }
 }

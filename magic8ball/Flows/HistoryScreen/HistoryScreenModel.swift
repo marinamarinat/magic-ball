@@ -15,7 +15,9 @@ class HistoryScreenModel {
     init(storage: HistoryService = HistoryService()) {
         self.storage = storage
     }
-    func getAnswer() -> [AnswerHistoryModel] {
-        return storage.getAnswer().map { AnswerHistoryModel.init(date: $0.date, message: $0.message) }
+    func getAnswer(completion: @escaping (_ historyAnswers: [PresentedAnswer]?) -> Void) {
+        storage.getAnswer{ (historyAnswers) in
+            completion(historyAnswers)
+        }
     }
 }

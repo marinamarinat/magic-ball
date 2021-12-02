@@ -28,7 +28,12 @@ class HistoryScreenViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(tableView)
         setupUI()
-        viewModel.loadInfo()
+        viewModel.loadInfo { (updatedHisrory) in
+            guard updatedHisrory else { return }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     func setupUI() {
         title = "History"
@@ -47,10 +52,10 @@ extension HistoryScreenViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier,
                                                        for: indexPath) as? HistoryTableViewCell else {
-                                                        return UITableViewCell()}
+            return UITableViewCell()}
         cell.configure(history: viewModel.message(for: indexPath.row),
                        data: viewModel.dateString(for: indexPath.row))
-        self.tableView.reloadData()
+        //        self.tableView.reloadData()
         return cell
     }
 }
