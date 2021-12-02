@@ -19,5 +19,12 @@ class MainViewModel {
     }
     func getSettingsViewModel() -> SettingsViewModel {
         return SettingsViewModel(model: model.getSettingsModel())
-    }    
+    }
+    func getHistoryViewModel() -> HistoryScreenViewModel {
+        return HistoryScreenViewModel(with: model.getHistoryModel())
+    }
+    func saveToHistory(_ answer: String) {
+        model.saveHistoryAnswer(answer)
+        print("saved to history")
+    }
 }

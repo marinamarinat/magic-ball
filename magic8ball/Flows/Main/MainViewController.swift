@@ -22,7 +22,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        configureBarItem()
+        configureRightBarItem()
+        configureLeftBarItem()
         navigationController?.navigationBar.tintColor = .label
         answersLabel.text = L10n.ShakeMessage.title
         becomeFirstResponder()
@@ -35,22 +36,35 @@ class MainViewController: UIViewController {
             viewModel.displayAnswer {(answer) in
                 self.answersLabel.text = answer?.maxLength(length: 30)
             }
+            viewModel.saveToHistory(self.answersLabel.text ?? "error!")
         }
     }
     @objc func settingsButton(_ sender: Any) {
         let settingsVC = SettingsViewController(viewModel: viewModel.getSettingsViewModel())
         navigationController?.pushViewController(settingsVC, animated: true)
     }
+    @objc func historyButton(_ sender: Any) {
+        let historyVC = HistoryScreenViewController(viewModel: viewModel.getHistoryViewModel())
+        navigationController?.pushViewController(historyVC, animated: true)
+    }
 }
 
 // MARK: - UI
 extension MainViewController {
-    private func configureBarItem() {
+    private func configureRightBarItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: L10n.gearshapeImage),
             style: .done,
             target: self,
             action: #selector(self.settingsButton(_:))
+        )
+    }
+    private func configureLeftBarItem() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "h.circle.fill"),
+            style: .done,
+            target: self,
+            action: #selector(self.historyButton(_:))
         )
     }
     private func setupUI() {
